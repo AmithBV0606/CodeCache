@@ -3,7 +3,7 @@
 import { prisma } from "@/lib/script";
 import { redirect } from "next/navigation";
 
-// Create operation : 
+// Create operation :
 export async function createSnippet(formData: FormData) {
   const title = formData.get("title") as string;
   const code = formData.get("code") as string;
@@ -15,7 +15,22 @@ export async function createSnippet(formData: FormData) {
     },
   });
 
-  console.log(snippet);
+  // console.log(snippet);
 
   redirect("/");
+}
+
+// Update operation :
+export async function updateSnippet(id: number, title: string, code: string) {
+  await prisma.snippet.update({
+    where: {
+      id,
+    },
+    data: {
+      title,
+      code,
+    },
+  });
+
+  redirect(`/snippet/${id}`);
 }

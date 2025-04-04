@@ -16,14 +16,14 @@ export default function CreateSnippetPage() {
           type="text"
           name="title"
           id="title"
-          className="border-black h-14"
+          className="border-black h-14 bg-[#EBEBEB]"
         />
       </div>
 
       <div className="space-y-2">
         <Label className="text-xl font-medium">Code : </Label>
 
-        <Textarea name="code" id="code" className="border-black h-96" />
+        <Textarea name="code" id="code" className="border-black h-96 bg-[#EBEBEB] text-black" />
       </div>
 
       <Button type="submit">Add</Button>
