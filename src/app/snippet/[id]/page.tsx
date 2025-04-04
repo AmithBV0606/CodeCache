@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/script";
 import Link from "next/link";
 import React from "react";
+import { notFound } from "next/navigation";
 
 export default async function ViewSnippetPage({
   params,
@@ -19,11 +20,12 @@ export default async function ViewSnippetPage({
   });
 
   if (!snippet) {
-    return (
-      <div className="h-screen w-full flex justify-center items-center">
-        <p className="text-2xl font-bold">No snippet found!!</p>
-      </div>
-    );
+    // return (
+    //   <div className="h-screen w-full flex justify-center items-center">
+    //     <p className="text-2xl font-bold">No snippet found!!</p>
+    //   </div>
+    // );
+    notFound();
   }
 
   const deleteSnippetAction = deleteSnippet.bind(null, snippet.id);
