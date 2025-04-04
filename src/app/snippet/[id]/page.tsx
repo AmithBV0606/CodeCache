@@ -1,3 +1,4 @@
+import { deleteSnippet } from "@/actions/action";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/script";
 import Link from "next/link";
@@ -25,6 +26,8 @@ export default async function ViewSnippetPage({
     );
   }
 
+  const deleteSnippetAction = deleteSnippet.bind(null, snippet.id);
+
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">Title : {snippet.title}</h1>
@@ -35,14 +38,16 @@ export default async function ViewSnippetPage({
         </pre>
       </div>
 
-      <div className="space-x-3">
+      <div className="space-x-3 flex">
         <Link href={`/snippet/${snippet.id}/edit`} className="cursor-pointer">
           <Button variant={"default"}>Edit</Button>
         </Link>
 
-        <Button variant={"destructive"} className="cursor-pointer">
-          Delete
-        </Button>
+        <form action={deleteSnippetAction}>
+          <Button type="submit" variant={"destructive"} className="cursor-pointer">
+            Delete
+          </Button>
+        </form>
       </div>
     </div>
   );

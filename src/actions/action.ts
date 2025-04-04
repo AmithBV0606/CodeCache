@@ -34,3 +34,14 @@ export async function updateSnippet(id: number, title: string, code: string) {
 
   redirect(`/snippet/${id}`);
 }
+
+// Delete operation :
+export async function deleteSnippet(id: number) {
+  await prisma.snippet.delete({
+    where: {
+      id: id,
+    },
+  });
+
+  redirect("/");
+}
