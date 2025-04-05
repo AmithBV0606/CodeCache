@@ -20,7 +20,7 @@ export default async function Home() {
         </Link>
       </div>
 
-      <div className="h-screen border border-gray-700 mt-6 rounded-lg p-4">
+      <div className="border border-gray-700 h-[80vh] mt-6 rounded-lg p-4 overflow-y-scroll">
         {snippets.map((snippet) => (
           <div
             key={snippet.id}

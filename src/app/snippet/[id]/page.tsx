@@ -32,7 +32,13 @@ export default async function ViewSnippetPage({
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Title : {snippet.title}</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Title : {snippet.title}</h1>
+
+        <Link href={"/"}>
+          <Button variant={"default"} className="cursor-pointer">Home</Button>
+        </Link>
+      </div>
 
       <div className="w-full bg-[#EBEBEB] border border-gray-700 rounded-sm h-auto p-2 min-h-60">
         <pre>
@@ -46,7 +52,11 @@ export default async function ViewSnippetPage({
         </Link>
 
         <form action={deleteSnippetAction}>
-          <Button type="submit" variant={"destructive"} className="cursor-pointer">
+          <Button
+            type="submit"
+            variant={"destructive"}
+            className="cursor-pointer"
+          >
             Delete
           </Button>
         </form>

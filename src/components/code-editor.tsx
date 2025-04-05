@@ -37,7 +37,7 @@ export default function CodeEditor({ snippet }: { snippet: Snippet }) {
           name="title"
           id="title"
           className="border-black h-14 bg-[#EBEBEB]"
-          defaultValue={heading}
+          value={heading}
           onChange={handleTitleChange}
         />
       </div>
@@ -49,7 +49,7 @@ export default function CodeEditor({ snippet }: { snippet: Snippet }) {
           height="40vh"
           theme="vs-dark"
           defaultLanguage="javascript"
-          defaultValue={program}
+          value={program} // Use `value` instead of `defaultValue`
           onChange={handleCodeChange}
         />
       </div>
