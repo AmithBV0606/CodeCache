@@ -21,12 +21,17 @@ export async function createSnippet(
       return { message: "Code is required and must be longer" };
     }
 
-    await prisma.snippet.create({
+    let snippet;
+    snippet = await prisma.snippet.create({
       data: {
         title,
         code,
       },
     });
+
+    if (!snippet) {
+      throw new Error("Unable to connect to our database!!");
+    }
 
     revalidatePath("/");
   } catch (error: unknown) {
