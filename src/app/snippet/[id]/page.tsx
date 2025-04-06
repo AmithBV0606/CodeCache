@@ -13,6 +13,8 @@ export default async function ViewSnippetPage({
   //   const { id } = await params;
   const id = (await params).id;
 
+  await new Promise((r) => setTimeout(r, 2000));
+
   const snippet = await prisma.snippet.findUnique({
     where: {
       id: parseInt(id),
@@ -36,7 +38,9 @@ export default async function ViewSnippetPage({
         <h1 className="text-2xl font-bold">Title : {snippet.title}</h1>
 
         <Link href={"/"}>
-          <Button variant={"default"} className="cursor-pointer">Home</Button>
+          <Button variant={"default"} className="cursor-pointer">
+            Home
+          </Button>
         </Link>
       </div>
 
@@ -63,4 +67,14 @@ export default async function ViewSnippetPage({
       </div>
     </div>
   );
+}
+
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const snippets = await prisma.snippet.findMany();
+
+  // 2, 11, 12, 13
+  return snippets.map((snippet) => {
+    return { id: snippet.id.toString() };
+  });
 }

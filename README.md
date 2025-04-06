@@ -35,26 +35,30 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-### Caching 
+## Caching 
 
 <img src="./assets/Pic-1.png" />
 
-#### To disable caching :
+### <ins>To disable caching</ins> :
 
-**To convert a static route into dynamic route : Disabling Caching**
+**Way 1 : To convert a static route into dynamic route : Disabling Caching**
 
 ```ts
 export const dynamic = "force-dynamic";
 ```
 
-**Time based caching : When set to 0, caching is disabled**
+**Way 2 : Time based caching : When set to 0, caching is disabled**
 
 ```ts
 export const revalidate = 0;
 ```
 
-#### On-Demand Caching
+### <ins>On-Demand Caching</ins> :
 
 ```js
 revalidatePath("/")
 ```
+
+### Converting a dynamic route into a static route : 
+
+The `generateStaticParams` function can be used in combination with dynamic route segments to statically generate routes at build time instead of on-demand at request time.

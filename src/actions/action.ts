@@ -56,6 +56,7 @@ export async function updateSnippet(id: number, title: string, code: string) {
     },
   });
 
+  revalidatePath(`/snippet/${id}`);
   redirect(`/snippet/${id}`);
 }
 
