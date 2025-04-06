@@ -1,3 +1,6 @@
+// export const dynamic = "force-dynamic";
+// export const revalidate = 500;
+
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/script";
 import { SnippetType } from "@/lib/types";

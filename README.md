@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Caching 
+
+<img src="./assets/Pic-1.png" />
+
+#### To disable caching :
+
+**To convert a static route into dynamic route : Disabling Caching**
+
+```ts
+export const dynamic = "force-dynamic";
+```
+
+**Time based caching : When set to 0, caching is disabled**
+
+```ts
+export const revalidate = 0;
+```
+
+#### On-Demand Caching
+
+```js
+revalidatePath("/")
+```

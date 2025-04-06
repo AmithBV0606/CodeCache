@@ -21,8 +21,7 @@ export async function createSnippet(
       return { message: "Code is required and must be longer" };
     }
 
-    let snippet;
-    snippet = await prisma.snippet.create({
+    const snippet = await prisma.snippet.create({
       data: {
         title,
         code,
@@ -67,6 +66,6 @@ export async function deleteSnippet(id: number) {
       id: id,
     },
   });
-
+  revalidatePath("/");
   redirect("/");
 }
